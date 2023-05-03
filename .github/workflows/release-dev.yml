@@ -22,6 +22,6 @@ jobs:
       - name: Build/Push container
         run: |
           export VERSION=$(grep 'version = "' math_api/pyproject.toml | head -1 | awk -F'"' '{print $2}')
-          export CONTAINER_NAME=ghcr.io/nicogelders/cm-training:$VERSION-dev
+          export CONTAINER_NAME=ghcr.io/test12345/cm-training:$VERSION-dev
           docker build . --tag $CONTAINER_NAME
           docker push $CONTAINER_NAME
