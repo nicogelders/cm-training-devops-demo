@@ -8,7 +8,8 @@ on:
 jobs:
   build-push-container:
     runs-on: ubuntu-latest
-
+    permissions:
+      packages: write
     steps:
       - uses: actions/checkout@v2
 
@@ -17,7 +18,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{github.actor}}
-          password: ${{secrets.DOCKER_TOKEN}}
+          password: ${{secrets.GITHUB_TOKEN}}
 
       - name: Build/Push container
         run: |
